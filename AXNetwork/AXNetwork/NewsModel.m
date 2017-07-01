@@ -53,12 +53,10 @@
 {
     NSURL *url = [NSURL URLWithString:@"http://news.coolban.com/Api/Index/news_list/app/2/cat/0/limit/20/time/1472281297/type/0?channel=appstore&uuid=8FCC46AD-2B0C-4DC2-89C8-9631855FAB13&net=5&model=iPhone&ver=1.0.5"];
     
-    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
-    req.HTTPMethod = @"POST";
-    
-    [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-        
-        if (connectionError) {
+    // completionHandler 是通过异步接口接收数据的
+    [[[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSLog(@"currentThread: %@", [NSThread currentThread]);
+        if (error) {
             //连接错误
             if (errorBlock) {
                 errorBlock();
@@ -79,17 +77,20 @@
                 [news addObject:model];
             }];
             
-            if (successBlock) {
-                //成功 拿到数据 
-                successBlock(news);
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (successBlock) {
+                    //成功 拿到数据后回主线程刷新数据
+                    successBlock(news);
+                };
+            });
+            
         } else {
             if (errorBlock) {
                 errorBlock();//服务器错误，请求失败
             }
         }
-        
-    }];
+    }] resume];
+    
 }
 
 - (NSString *)description {

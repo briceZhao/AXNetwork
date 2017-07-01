@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "NewsModel.h"
 #import "NewsCell.h"
-#import "MJRefresh.h"
+#import <MJRefresh.h>
 
 @interface ViewController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -74,6 +74,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     return 120.f;
 }
 

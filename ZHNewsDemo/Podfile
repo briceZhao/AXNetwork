@@ -1,5 +1,5 @@
 
-target 'AXNetwork' do
+target 'ZHNewsDemo' do
     
   platform :ios, '8.0'
 

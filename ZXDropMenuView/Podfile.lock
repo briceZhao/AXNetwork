@@ -1,0 +1,29 @@
+PODS:
+  - JPFPSStatus (0.1)
+  - JSONModel (1.7.0)
+  - Masonry (1.0.2)
+  - ReactiveObjC (2.1.2)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - ZXScrollNavigationBar (0.0.2)
+
+DEPENDENCIES:
+  - JPFPSStatus
+  - JSONModel
+  - Masonry
+  - ReactiveObjC
+  - SDWebImage
+  - ZXScrollNavigationBar
+
+SPEC CHECKSUMS:
+  JPFPSStatus: 4467a17488382e4c1700bd9d18c92ae581fd6305
+  JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  ZXScrollNavigationBar: 13485e7851cd656b21a2dedd3444749f551ce114
+
+PODFILE CHECKSUM: 852c3b6bbedcb43b84cc76f350ffa47f0843ca5d
+
+COCOAPODS: 1.2.1
